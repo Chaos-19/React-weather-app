@@ -21,6 +21,7 @@ const SearchBar = () => {
         if (event.key === "Enter") {
             const apiUrl = `${process.env.REACT_APP_BASE_URL}q=${searchValue}&appid=${process.env.REACT_APP_API_KEY}`;
             dispatch(fetchWeather(apiUrl));
+            setSearchValue("");
         }
     };
     useEffect(() => {
