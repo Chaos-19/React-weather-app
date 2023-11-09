@@ -19,7 +19,6 @@ const SearchBar = () => {
     };
     const handleKeyDown = event => {
         if (event.key === "Enter") {
-            alert(searchValue);
             const apiUrl = `${process.env.REACT_APP_BASE_URL}q=${searchValue}&appid=${process.env.REACT_APP_API_KEY}`;
             dispatch(fetchWeather(apiUrl));
         }

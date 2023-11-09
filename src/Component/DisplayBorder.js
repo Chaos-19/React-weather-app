@@ -61,19 +61,25 @@ const DisplayBorder = () => {
                             <span className="flex items-center gap-4">
                                 <WiHumidity className="text-2xl" /> humidity
                             </span>
-                            <span className="">{humidity}%</span>
+                            <span className="dark:text-blue-500">
+                                {humidity}%
+                            </span>
                         </div>
                         <div className="grid grid-cols-2 gap-7 text-2xl">
                             <span className="flex items-center gap-4">
                                 <WiCloudyGusts /> wind
                             </span>
-                            <span className="">{speed}kmph</span>
+                            <span className="dark:text-blue-500">
+                                {speed}kmph
+                            </span>
                         </div>
                         <div className="grid grid-cols-2 gap-7 text-2xl">
                             <span className="flex items-center gap-4">
                                 <WiBarometer /> pressure
                             </span>
-                            <span className="">{pressure}hps</span>
+                            <span className="dark:text-blue-500">
+                                {pressure}hps
+                            </span>
                         </div>
                     </div>
                 </div>

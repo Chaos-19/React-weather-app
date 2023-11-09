@@ -35,11 +35,10 @@ export const fetchWeather = city => {
             const data = await response.json();
             dispatch(fetchWeatherSuccess(data));
             dispatch(changeUnit({ ...data }, "Kelvin", "fahrenheit"));
-            dispatch(
-                fetchWeatherForcast(
-                    `https://api.openweathermap.org/data/2.5/forecast?lat=${9.025}&lon=${38.7469}&appid=${"0099b020d49f8562476848d97aa48ffe"}`
-                )
-            );
+            const apiUrl = `${"https://api.openweathermap.org/data/2.5/forecast?"}lat=${
+                data.coord.lat
+            }&lon=${data.coord.lon}&appid=${process.env.REACT_APP_API_KEY}`;
+            dispatch(fetchWeatherForcast(apiUrl));
         } catch (error) {
             alert(error);
             dispatch(fetchWeatherFailure(error));

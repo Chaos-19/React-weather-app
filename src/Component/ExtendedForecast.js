@@ -11,14 +11,20 @@ const ExtendedForecast = ({ currentUnit }) => {
     };
 
     return (
-        <div className="bg-panel text-panel rounded-xl mx-2 mt-3 p-3 mt-5">
+        <div className="bg-panel text-panel rounded-xl mx-2 mt-3 p-3">
             <h3 className="text-2xl capitalize py-3">Extended Forcast</h3>
-            <div className="flex justify-around w-full overflow-scroll">
+            <div className="flex flex-row w-full overflow-scroll md:justify-around justify-between text-sm">
                 {data &&
                     data.map((v, i) => {
                         return (
                             <div
-                                className="flex flex-col items-center"
+                                className={`flex flex-col items-center flex-shrink-0 ${
+                                    i == 0
+                                        ? "ml-auto"
+                                        : i == data.length - 1
+                                        ? "mr-auto"
+                                        : ""
+                                } md:m-0`}
                                 key={v.dt}
                             >
                                 <div>{getDataName(v.dt_txt)}</div>
