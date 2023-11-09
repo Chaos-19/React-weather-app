@@ -14,13 +14,13 @@ const SearchBar = () => {
 
     const handleClick = async e => {
         await getLocation();
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`;
+        const apiUrl = `${process.env.REACT_APP_BASE_URL}lat=${location.lat}&lon=${location.lon}&appid=${process.env.REACT_APP_API_KEY}`;
         dispatch(fetchWeather(apiUrl));
     };
     const handleKeyDown = event => {
         if (event.key === "Enter") {
             alert(searchValue);
-                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${apiKey}`;
+            const apiUrl = `${process.env.REACT_APP_BASE_URL}q=${searchValue}&appid=${process.env.REACT_APP_API_KEY}`;
             dispatch(fetchWeather(apiUrl));
         }
     };
