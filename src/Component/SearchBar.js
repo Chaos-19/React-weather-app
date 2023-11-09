@@ -13,7 +13,6 @@ const SearchBar = () => {
     const dispatch = useDispatch();
 
     const handleClick = async e => {
-        const apiKey = "0099b020d49f8562476848d97aa48ffe";
         await getLocation();
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`;
         dispatch(fetchWeather(apiUrl));
@@ -21,8 +20,7 @@ const SearchBar = () => {
     const handleKeyDown = event => {
         if (event.key === "Enter") {
             alert(searchValue);
-            const apiKey = "0099b020d49f8562476848d97aa48ffe";
-            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${apiKey}`;
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${apiKey}`;
             dispatch(fetchWeather(apiUrl));
         }
     };
